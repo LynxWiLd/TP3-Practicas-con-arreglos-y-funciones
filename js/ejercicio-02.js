@@ -15,39 +15,66 @@ const ciudades = [];
 let ciudad;
 do {
   ciudad = prompt("Ingrese el nombre de una ciudad (Cancelar para finalizar):");
-  ciudades.push(ciudad);
+  if (ciudad !== null && ciudad.trim() !== "") {
+    ciudades.push(ciudad.trim()); // Agregar ciudad al arreglo si no es nula o vacía
+  }
 } while (ciudad !== null);
-//Añade en última posición la ciudad de París.
-ciudades.push("París");
-console.log(`<p>Ciudad añadida al final: París [${ciudades}]</p>`);
-//Mostrar el arreglo generado
-document.writeln(`<h1>Ciudades Ingresadas:</h1>`);
-document.writeln(`<p>[${ciudades}]</p>`);
+console.log(ciudades);
 //Mostrar la longitud del arreglo.
-document.writeln(`<p>Longitud del arreglo: ${ciudades.length}</p>`);
-
+document.writeln(
+  `<p>El arreglo de ciudades tiene: ${ciudades.length} elementos</p>`
+);
 //Mostrar en el documento web los ítems de las posiciones primera, tercera y última.
+document.writeln(`<ul>`);
 if (ciudades.length >= 1) {
+  document.writeln(`<li>`);
   document.writeln(`<p>Primera ciudad: ${ciudades[0]}</p>`);
+  document.writeln(`</li>`);
 }
 if (ciudades.length >= 3) {
+  document.writeln(`<li>`);
   document.writeln(`<p>Tercera ciudad: ${ciudades[2]}</p>`);
+  document.writeln(`</li>`);
 }
 if (ciudades.length >= 1) {
+  document.writeln(`<li>`);
   document.writeln(`<p>Última ciudad: ${ciudades[ciudades.length - 1]}</p>`);
+  document.writeln(`</li>`);
 }
 //Escribe por pantalla el elemento que ocupa la segunda posición.
 if (ciudades.length >= 2) {
-  document.writeln(`<p>Ciudad en la segunda posición: ${ciudades[1]}</p>`);
+  document.writeln(`<li>`);
+  document.writeln(`<p>La segunda ciudad es: ${ciudades[1]}</p>`);
+  document.writeln(`</li>`);
 }
-//Sustituye el elemento que ocupa la segunda posición por la ciudad de 'Barcelona'.
-if (ciudades.length >= 2) {
-  const ciudadAnterior = ciudades[1];
-  ciudades[1] = "Barcelona";
-  document.writeln(
-    `<p>Ciudad en la segunda posición sustituida: ${ciudadAnterior} por Barcelona</p>`
-  );
-  document.writeln(`<p>Nuevo arreglo de ciudades: [${ciudades}]</p>`);
-} else {
-  document.writeln(`<p>No hay segunda posición para sustituir.</p>`);
+
+ciudades.push("París");
+
+if (ciudades.length >= 1) {
+  document.writeln(`<li>`);
+  document.writeln(`<p>Última ciudad: ${ciudades[ciudades.length - 1]}</p>`);
+  document.writeln(`</li>`);
+}
+document.writeln(`</ul>`);
+
+//Añade en última posición la ciudad de París.
+
+if (ciudades.length >= 1) {
+  document.writeln(`<br>`);
+  document.writeln(`<li>`);
+  document.writeln(`<p>Última ciudad: ${ciudades[ciudades.length - 1]}</p>`);
+  document.writeln(`</li>`);
+}
+document.writeln(`</ul>`);
+
+//Mostrar el arreglo generado
+document.writeln(`<h3>Arreglo de Ciudades:</h3>`);
+for (let i = 0; i < ciudades.length; i++) {
+  if (ciudades[i] !== null) {
+    document.writeln(`<ul>`);
+    document.writeln(`<li>`);
+    document.writeln(`<p>${ciudades[i]}</p>`);
+    document.writeln(`</li>`);
+    document.writeln(`</ul>`);
+  }
 }
